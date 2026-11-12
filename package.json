@@ -1,0 +1,35 @@
+{
+  "name": "brent-gibson-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build && tsx scripts/prerender.tsx",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "tsx --test tests/*.test.tsx",
+    "verify": "npm test && npm run build && node scripts/check-output.mjs",
+    "clean": "node scripts/clean.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@radix-ui/react-slot": "1.5.0",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.7.0",
+    "@fontsource/ibm-plex-sans": "5.3.0"
+  },
+  "devDependencies": {
+    "vite": "8.3.8",
+    "@vitejs/plugin-react": "6.3.0",
+    "typescript": "7.0.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/node": "26.6.6",
+    "tailwindcss": "4.3.5",
+    "@tailwindcss/vite": "4.3.5",
+    "tsx": "4.23.15"
+  }
+}
