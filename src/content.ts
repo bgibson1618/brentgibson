@@ -28,7 +28,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: 'roster', name: 'Task Force', descriptor: 'Coordination across AI vendors',
-    summary: 'A shared way to delegate work to Claude, Codex and Antigravity agents, exchange messages, and follow each run. I built the coordination layer, backend adapters and monitoring console.',
+    summary: 'Task Force gives Claude, Codex and Antigravity agents a common way to delegate tasks, exchange messages and review one another’s work. A shared monitoring console provides observability into each agent’s progress and results.',
     problem: 'I wanted an orchestrating agent to delegate to another vendor’s agent and bring the result back into the same workflow. I also wanted to see what was running and inspect what happened afterward. A collection of separate terminal sessions made that coordination difficult.',
     contribution: 'I designed and built a reusable delegation layer around the vendor CLIs, along with agent-to-agent messaging, a live monitoring console, and persistent run logs and status. The model providers supply the agents; Task Force supplies the shared coordination and observation layer.',
     architecture: [
