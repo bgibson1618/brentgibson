@@ -16,9 +16,10 @@ export function DemoWalkthrough({ project }: { project: Project }) {
       <p className="takeaway">{step.takeaway}</p>
     </div>
     <div className="walkthrough-controls">
-      <Button variant="outline" disabled={index === 0} onClick={() => setIndex(i => demoIndex(i, 'previous', project.demo.length))}>Previous step</Button>
-      <Button disabled={index === project.demo.length - 1} onClick={() => setIndex(i => demoIndex(i, 'next', project.demo.length))}>Next step</Button>
-      <Button variant="ghost" disabled={index === 0} onClick={() => setIndex(0)}>Start over</Button>
+      {/* Keep keyboard focus when an action reaches the first or last step. */}
+      <Button variant="outline" aria-disabled={index === 0} onClick={() => { if (index > 0) setIndex(i => demoIndex(i, 'previous', project.demo.length)); }}>Previous step</Button>
+      <Button aria-disabled={index === project.demo.length - 1} onClick={() => { if (index < project.demo.length - 1) setIndex(i => demoIndex(i, 'next', project.demo.length)); }}>Next step</Button>
+      <Button variant="ghost" aria-disabled={index === 0} onClick={() => { if (index > 0) setIndex(0); }}>Start over</Button>
     </div>
     <noscript><p className="no-script-note">Enable JavaScript to step through this sample. The first step and all project information are available here.</p></noscript>
   </section>;
