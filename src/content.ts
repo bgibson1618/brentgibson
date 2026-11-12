@@ -45,12 +45,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'memory', name: 'Folio', descriptor: 'Knowledge that carries between sessions',
-    summary: 'Persistent, shared knowledge for agents working across projects. I combined versioned Markdown with keyword, semantic and graph search so useful context can be found and reused.',
+    id: 'memory', name: 'Folio', descriptor: 'Shared knowledge across sessions and projects',
+    summary: 'Folio gives AI agents a shared library of knowledge they can build on over time. Keyword, semantic and graph search help retrieve relevant context, while readable Markdown records keep that knowledge accessible to people as well.',
     problem: 'An agent can learn something useful during one task and begin the next session without it. I wanted a knowledge base that different agents and projects could consult, with records I could also inspect and edit.',
     contribution: 'I built the knowledge storage and retrieval system around versioned Markdown, using SQLite full-text search, local embeddings and a derived relationship graph. These search paths contribute to a combined result rather than requiring a separate knowledge store for each one.',
     architecture: [
-      { title: 'Readable records first', text: 'Versioned Markdown in the Open Knowledge Format is the source of truth. Search indexes are derived from it rather than becoming the only copy of the knowledge.' },
+      { title: 'Readable records first', text: 'Folio stores knowledge in versioned Markdown based on the Open Knowledge Format, an open specification introduced by Google Cloud. The records remain readable and portable across tools, with search indexes derived from them.' },
       { title: 'More than exact words', text: 'Keyword search finds explicit terms. Semantic search helps with differently worded questions. Graph traversal follows relationships between entries.' },
       { title: 'One retrieval result', text: 'The retrieval paths are combined using reciprocal rank fusion, so an agent can receive useful context without choosing a search engine first.' },
     ],
