@@ -8,9 +8,9 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/brent-gibson-76386265/',
   headline: 'I build AI applications and tools that help agents work together.',
   introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Task Force to coordinate agents from different AI vendors, and Folio to carry useful knowledge between sessions and projects. I use both every day.',
-  about: 'I like understanding how a system works, finding the source of friction, and building tools that make the next project easier. My background spans embedded software, AI evaluation and the Gauntlet AI fellowship, where Folio was my capstone.',
-  contactHeading: "Let's talk about what you're building.",
-  contact: "I'm interested in AI engineering and software engineering roles focused on LLM applications, evaluation and agent developer tools, in Austin or remotely.",
+  about: 'I like understanding how systems work, tracing problems to their source and building tools that make the next project easier. My background spans embedded software, AI evaluation and application development. During the Gauntlet AI fellowship, I built Folio as my capstone project.',
+  contactHeading: 'What can I build for your team?',
+  contact: 'I’m interested in engineering roles focused on LLM applications, evaluation and agent developer tools. I’m based in Austin and open to local or remote opportunities.',
   education: [
     { institution: 'Gauntlet AI fellowship', detail: 'Intensive ten-week program · April–July 2026' },
     { institution: 'California State University, Northridge', detail: 'B.S. Computer Science · 2022' },
