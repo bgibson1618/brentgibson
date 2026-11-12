@@ -32,7 +32,7 @@ function Home({ base }: { base: string }) {
       <h2 id="work-heading" className="section-label">Selected work</h2>
       {projects.map(project => <article className="project-row" key={project.id}>
         <div className="project-copy"><h3>{project.name}</h3><p className="descriptor">{project.descriptor}</p>
-          <p>{project.summary}</p><a className="text-link" href={pageUrl(base, project.id)}>How {project.id === 'roster' ? 'Roster' : 'Memory'} works</a>
+          <p>{project.summary}</p><a className="text-link" href={pageUrl(base, project.id)}>How {project.name} works</a>
         </div><ProjectDiagram kind={project.id} />
       </article>)}
       <article className="supporting-project"><div><p className="eyebrow">Also built</p><h3>Retrieval for OpenEMR</h3></div><p>{profile.openemr}</p></article>

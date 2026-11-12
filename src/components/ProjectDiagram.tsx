@@ -8,7 +8,7 @@ export function ProjectDiagram({ kind }: { kind: 'roster' | 'memory' }) {
       <figcaption>One coordination layer. Multiple backends.</figcaption>
     </figure>
   ) : (
-    <figure className="project-diagram" aria-label="Concept diagram of Memory's retrieval paths">
+    <figure className="project-diagram" aria-label="Concept diagram of Folio's retrieval paths">
       <div className="diagram-memory-source">Shared knowledge<span>Versioned Markdown</span></div>
       <div className="diagram-retrieval">
         <div><strong>Words</strong><span>Keyword search</span></div>

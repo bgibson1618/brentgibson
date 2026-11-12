@@ -1,6 +1,6 @@
 # Brent Gibson portfolio
 
-A static React portfolio with a homepage, Agent Roster and Agent Memory case
+A static React portfolio with a homepage, Agent Roster and Folio case
 studies, and small illustrative walkthroughs. Built with Vite, TypeScript and a
 shadcn/ui Button foundation. No backend, account, analytics or model calls.
 
@@ -27,6 +27,9 @@ serves the production result on loopback.
 The walkthroughs are explicitly illustrative. Replace them with verified public
 examples or recordings when the projects are updated. Roster currently has no
 publicly verified source link; do not add a broken/private repository URL.
+
+Folio is the provisional website name for Agent Memory. Its existing route,
+repository, CLI and downloadable resume retain their current names.
 
 ## Static hosting
 

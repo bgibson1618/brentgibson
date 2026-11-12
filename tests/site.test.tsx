@@ -23,8 +23,8 @@ test('static routes and assets stay beneath the selected deployment base', () =>
 });
 test('home preserves the approved project order', () => {
   const html = renderToString(<App page="home" base="/" />);
-  assert.ok(html.indexOf('<h3>Agent Roster') < html.indexOf('<h3>Agent Memory'));
-  assert.ok(html.indexOf('<h3>Agent Memory') < html.indexOf('Retrieval for OpenEMR'));
+  assert.ok(html.indexOf('<h3>Agent Roster') < html.indexOf('<h3>Folio'));
+  assert.ok(html.indexOf('<h3>Folio') < html.indexOf('Retrieval for OpenEMR'));
 });
 test('walkthrough controls stop at boundaries and reset predictably', () => {
   for (const project of projects) {

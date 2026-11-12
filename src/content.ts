@@ -7,8 +7,8 @@ export const profile = {
   github: 'https://github.com/bgibson1618',
   linkedin: 'https://www.linkedin.com/in/brent-gibson-76386265/',
   headline: 'I build AI applications and tools that help agents work together.',
-  introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Agent Roster to coordinate agents from different AI vendors, and Agent Memory to carry useful knowledge between sessions and projects. I use both every day.',
-  about: 'I like understanding how a system works, finding the source of friction, and building tools that make the next project easier. My background spans embedded software, AI evaluation and the Gauntlet AI fellowship, where Agent Memory was my capstone.',
+  introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Agent Roster to coordinate agents from different AI vendors, and Folio to carry useful knowledge between sessions and projects. I use both every day.',
+  about: 'I like understanding how a system works, finding the source of friction, and building tools that make the next project easier. My background spans embedded software, AI evaluation and the Gauntlet AI fellowship, where Folio was my capstone.',
   contactHeading: "Let's talk about what you're building.",
   contact: "I'm interested in AI engineering and software engineering roles focused on LLM applications, evaluation and agent developer tools, in Austin or remotely.",
   education: [
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 'memory', name: 'Agent Memory', descriptor: 'Knowledge that carries between sessions',
+    id: 'memory', name: 'Folio', descriptor: 'Knowledge that carries between sessions',
     summary: 'Persistent, shared knowledge for agents working across projects. I combined versioned Markdown with keyword, semantic and graph search so useful context can be found and reused.',
     problem: 'An agent can learn something useful during one task and begin the next session without it. I wanted a knowledge base that different agents and projects could consult, with records I could also inspect and edit.',
     contribution: 'I built the knowledge storage and retrieval system around versioned Markdown, using SQLite full-text search, local embeddings and a derived relationship graph. These search paths contribute to a combined result rather than requiring a separate knowledge store for each one.',
