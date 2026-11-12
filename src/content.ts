@@ -16,7 +16,7 @@ export const profile = {
     { institution: 'California State University, Northridge', detail: 'B.S. Computer Science · 2022' },
     { institution: 'Santa Monica College', detail: 'Certificate of Achievement in Computer Science' },
   ],
-  openemr: 'An independently deployable RAG sidecar for OpenEMR. I developed document ingestion, chunking, embeddings, retrieval, the API and evaluations, while keeping the core application independent of the module.',
+  openemr: 'I built a retrieval-augmented generation (RAG) module that makes documents and medical guidelines accessible within OpenEMR, an open-source electronic health record system. The module runs as an independently deployable sidecar, so OpenEMR can operate without it. My work covered document ingestion, chunking, embeddings, retrieval, the API and evaluations.',
 };
 
 export type DemoStep = { title: string; description: string; label: string; example: string; takeaway: string };
