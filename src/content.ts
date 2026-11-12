@@ -7,7 +7,7 @@ export const profile = {
   github: 'https://github.com/bgibson1618',
   linkedin: 'https://www.linkedin.com/in/brent-gibson-76386265/',
   headline: 'I build AI applications and tools that help agents work together.',
-  introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Agent Roster to coordinate agents from different AI vendors, and Folio to carry useful knowledge between sessions and projects. I use both every day.',
+  introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Task Force to coordinate agents from different AI vendors, and Folio to carry useful knowledge between sessions and projects. I use both every day.',
   about: 'I like understanding how a system works, finding the source of friction, and building tools that make the next project easier. My background spans embedded software, AI evaluation and the Gauntlet AI fellowship, where Folio was my capstone.',
   contactHeading: "Let's talk about what you're building.",
   contact: "I'm interested in AI engineering and software engineering roles focused on LLM applications, evaluation and agent developer tools, in Austin or remotely.",
@@ -27,10 +27,10 @@ export type Project = {
 };
 export const projects: Project[] = [
   {
-    id: 'roster', name: 'Agent Roster', descriptor: 'Coordination across AI vendors',
+    id: 'roster', name: 'Task Force', descriptor: 'Coordination across AI vendors',
     summary: 'A shared way to delegate work to Claude, Codex and Antigravity agents, exchange messages, and follow each run. I built the coordination layer, backend adapters and monitoring console.',
     problem: 'I wanted an orchestrating agent to delegate to another vendor’s agent and bring the result back into the same workflow. I also wanted to see what was running and inspect what happened afterward. A collection of separate terminal sessions made that coordination difficult.',
-    contribution: 'I designed and built a reusable delegation layer around the vendor CLIs, along with agent-to-agent messaging, a live monitoring console, and persistent run logs and status. The model providers supply the agents; Roster supplies the shared coordination and observation layer.',
+    contribution: 'I designed and built a reusable delegation layer around the vendor CLIs, along with agent-to-agent messaging, a live monitoring console, and persistent run logs and status. The model providers supply the agents; Task Force supplies the shared coordination and observation layer.',
     architecture: [
       { title: 'A common entry point', text: 'An orchestrator assigns a focused task and selects a role and backend. Adapters translate that launch into the appropriate vendor CLI behavior.' },
       { title: 'Messages and durable records', text: 'Agents can exchange messages, while run records preserve the task, output and status for later inspection.' },
