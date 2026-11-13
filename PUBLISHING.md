@@ -37,7 +37,9 @@ Never publish the repository root: it contains source and development files.
 
 For the first launch, return Settings → Pages to **Deploy from a branch**, select
 the preserved `website` branch and `/ (root)`, and confirm the legacy site's build
-and public URL. Check the branch identity before switching. For later releases,
+and public URL. Restore the `github-pages` environment's allowed deployment branch
+to `website` as well; a `main`-only rule would block the old branch. Check the branch
+identity before switching. For later releases,
 revert the faulty change through an approved PR and manually publish the restored
 `main`. Do not force-push history or delete the previous site.
 
