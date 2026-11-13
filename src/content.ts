@@ -23,21 +23,21 @@ export type DemoStep = { title: string; description: string; label: string; exam
 export type Project = {
   id: 'roster' | 'memory'; name: string; descriptor: string; summary: string;
   problem: string; contribution: string; architecture: { title: string; text: string }[];
-  tradeoff: string; next: string; source?: string; demo: DemoStep[];
+  tradeoffTitle?: string; tradeoff: string; next?: string; source?: string; demo: DemoStep[];
 };
 export const projects: Project[] = [
   {
     id: 'roster', name: 'Ensemble', descriptor: 'Coordination across AI vendors',
     summary: 'Ensemble gives Claude, Codex and Antigravity agents a common way to delegate tasks, exchange messages and review one another’s work. A shared monitoring console provides observability into each agent’s progress and results.',
-    problem: 'I wanted an orchestrating agent to delegate to another vendor’s agent and bring the result back into the same workflow. I also wanted to see what was running and inspect what happened afterward. A collection of separate terminal sessions made that coordination difficult.',
-    contribution: 'I designed and built a reusable delegation layer around the vendor CLIs, along with agent-to-agent messaging, a live monitoring console, and persistent run logs and status. The model providers supply the agents; Ensemble supplies the shared coordination and observation layer.',
+    problem: 'Could a Claude agent delegate work to Codex—and could Codex do the same in return? That question became the starting point for Ensemble. I wanted agents from different vendors to collaborate within one workflow, with a clear view of their tasks, communication and results.',
+    contribution: 'I designed and built a coordination layer around the Claude, Codex and Antigravity command-line tools. An orchestrating agent can assign roles, launch delegates, exchange messages and collect their results. A shared monitoring console and persistent run records make that work inspectable, both while it is running and afterward.',
     architecture: [
-      { title: 'A common entry point', text: 'An orchestrator assigns a focused task and selects a role and backend. Adapters translate that launch into the appropriate vendor CLI behavior.' },
-      { title: 'Messages and durable records', text: 'Agents can exchange messages, while run records preserve the task, output and status for later inspection.' },
-      { title: 'A view of work in progress', text: 'The monitoring console brings runs into one place so I can follow progress without moving between every terminal.' },
+      { title: 'Assign the work', text: 'An orchestrator selects a role and backend for each task. An adapter translates that request into the appropriate vendor’s command-line invocation.' },
+      { title: 'Coordinate the agents', text: 'Agents exchange messages and return results through a common interface. Each run retains its brief, output and status for later inspection.' },
+      { title: 'Follow the progress', text: 'The monitoring console brings active runs and their records into one place, making it easier to follow several agents working in parallel.' },
     ],
-    tradeoff: 'A common interface is useful, but the vendor CLIs still differ in permissions, session behavior and available tools. The adapters need to preserve those distinctions. Cross-vendor review adds another perspective; deterministic checks are still needed to verify the result.',
-    next: 'The next portfolio update will replace this sample walkthrough with a recording from a public-safe task and a closer look at the monitoring console.',
+    tradeoffTitle: 'Design tradeoffs',
+    tradeoff: 'Building around existing command-line tools gives Ensemble access to the agents and capabilities those tools provide. It also creates a maintenance responsibility: vendors differ in their permissions, session behavior and available tools, and each adapter must account for those differences as the tools evolve.\n\nCross-vendor review brings another perspective to the work. Tests and direct verification are still needed to establish whether the result is correct.',
     demo: [
       { title: 'Give the work a clear brief', description: 'An orchestrator scopes a small implementation and the evidence a reviewer will need.', label: 'Example brief', example: 'Build a CSV preview that shows the parsed columns and rejects a file with no header. Include checks for an empty file and quoted commas.', takeaway: 'The task and acceptance examples travel together.' },
       { title: 'Delegate and keep the result visible', description: 'A builder uses one backend while the orchestrator can follow the run and retrieve its output.', label: 'Example handoff', example: 'Builder: preview component and parsing checks ready. Review the empty-file and quoted-comma cases before accepting the change.', takeaway: 'The result belongs to an inspectable run, not just a terminal scrollback.' },
