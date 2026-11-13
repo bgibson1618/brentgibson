@@ -39,4 +39,32 @@ for (const [path, destination] of redirects) {
 }
 const resume = await readFile(resolve(root, 'brent-gibson-resume.pdf'));
 if (resume.subarray(0, 5).toString() !== '%PDF-') throw new Error('Resume is not a PDF');
-console.log(`Checked ${pages.length} pre-rendered pages, ${redirects.length} redirects, ${checked} local links/assets, and the resume PDF.`);
+// Social crawlers read the initial HTML, without running React. Check the built
+// metadata against the actual PNGs so a missing asset or stale size fails CI.
+for (const project of ['ensemble', 'folio']) {
+  const html = await readFile(resolve(root, `projects/${project}/index.html`), 'utf8');
+  const tags = new Map([...html.matchAll(/<meta (?:property|name)="([^"]+)" content="([^"]+)"/g)]
+    .map(([, name, value]) => [name, value]));
+  const publicBase = `https://bgibson1618.github.io${base}`;
+  const pageURL = `${publicBase}projects/${project}/`;
+  const imageURL = `${publicBase}social/${project}-v1.png`;
+  if (tags.get('og:url') !== pageURL || !html.includes(`<link rel="canonical" href="${pageURL}"`)) {
+    throw new Error(`Incorrect public page URL for ${project}`);
+  }
+  if (tags.get('og:image') !== imageURL || tags.get('twitter:image') !== imageURL) {
+    throw new Error(`Incorrect social image URL for ${project}`);
+  }
+  if (tags.get('twitter:card') !== 'summary_large_image' || tags.get('og:image:type') !== 'image/png'
+      || !tags.get('og:image:alt') || tags.get('og:image:alt') !== tags.get('twitter:image:alt')) {
+    throw new Error(`Missing or inconsistent social image metadata for ${project}`);
+  }
+  const png = await readFile(resolve(root, `social/${project}-v1.png`));
+  if (png.length < 24 || png.subarray(0, 8).toString('hex') !== '89504e470d0a1a0a') {
+    throw new Error(`Social image for ${project} is not a PNG`);
+  }
+  if (Number(tags.get('og:image:width')) !== png.readUInt32BE(16)
+      || Number(tags.get('og:image:height')) !== png.readUInt32BE(20)) {
+    throw new Error(`Social image dimensions do not match the PNG for ${project}`);
+  }
+}
+console.log(`Checked ${pages.length} pre-rendered pages, ${redirects.length} redirects, ${checked} local links/assets, the resume PDF, and both social-preview images.`);
