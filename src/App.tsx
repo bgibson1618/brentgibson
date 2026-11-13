@@ -60,7 +60,10 @@ function ProjectPage({ project, base }: { project: Project; base: string }) {
         <div><h2 id="architecture-heading">How the pieces fit</h2>{project.architecture.map(part => <div className="architecture-part" key={part.title}><h3>{part.title}</h3><p>{part.text}</p></div>)}</div>
         <ProjectDiagram kind={project.id} />
       </section>
-      <section className="story-section"><h2>{project.tradeoffTitle ?? 'A tradeoff worth making explicit'}</h2>{project.tradeoff.split('\n\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}</section>
+      <section className="story-section">
+        <h2>{project.tradeoffTitle ?? 'A tradeoff worth making explicit'}</h2>
+        <div className="story-copy">{project.tradeoff.split('\n\n').map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
+      </section>
       {project.next && <section className="story-section"><h2>What comes next</h2><p>{project.next}</p></section>}
       <aside className="other-project"><span>More of my work</span><a href={pageUrl(base, other.id)}>{other.name}</a></aside>
     </div><Contact />
