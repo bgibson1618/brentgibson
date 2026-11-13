@@ -54,5 +54,13 @@ the built redirects; the development server serves only the current page sources
 The supported base is `/brentgibson/`; a future domain-root move must set
 `SITE_BASE=/` and update public canonical/sharing URLs as part of its own release.
 
+The two project pages include Open Graph and large-image card metadata in their
+initial HTML. Their approved PNG covers live in `public/social/`; preserve the
+versioned filenames when replacing a cover so an updated image can have a new URL.
+`npm run verify` checks public URLs, image presence, dimensions and alt text in the
+built output. After publication, check the public HTML and image responses; a
+successful deployment does not establish that a social platform has refreshed its
+cached preview. Image metadata follows the [Open Graph protocol](https://ogp.me/).
+
 References: [Vite static deployment](https://vite.dev/guide/static-deploy.html#github-pages)
 and [GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
