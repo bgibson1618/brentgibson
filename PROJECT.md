@@ -27,6 +27,11 @@ The original `website` branch/history is preserved. The new work is local on
 `codex/portfolio-mvp`; no push or publication is authorized by this build request.
 Prior legacy assets remain in Git history and need not be copied to build output.
 
+Launch preparation is approved locally: use Ensemble/Folio page addresses and
+resume names, retain redirects from the old page addresses, and prepare a manually
+triggered Pages workflow. No remote settings changes, push, merge or deployment
+are authorized by that preparation.
+
 ## Acceptance evidence
 
 - Home and two dedicated pages render at the root and the deployment base path.

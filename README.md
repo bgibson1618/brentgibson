@@ -29,20 +29,23 @@ examples or recordings when the projects are updated. Ensemble currently has no
 publicly verified source link; do not add a broken/private repository URL.
 
 Ensemble and Folio are the provisional website names for Agent Roster and
-Agent Memory. Existing routes, repositories, CLIs and the downloadable resume
-retain their current names. Project-repository renames await Brent's decision.
+Agent Memory. Page addresses and the downloadable resume now use Ensemble and Folio.
+The old page addresses redirect to the new ones. Repositories and CLIs retain
+their existing names; project-repository renames remain a separate task.
 
 ## Static hosting
 
-The build writes real HTML files for `/`, `/projects/agent-roster/` and
-`/projects/agent-memory/` relative to the selected base. Each is pre-rendered from
+The build writes real HTML files for `/`, `/projects/ensemble/` and
+`/projects/folio/` relative to the selected base. Each is pre-rendered from
 the same React components, then hydrated for the walkthrough controls. Links and
 project content work without JavaScript. Fonts are served from the site itself.
 
 The default base is `/brentgibson/`, matching the existing GitHub Pages path.
 Use `SITE_BASE=/ npm run verify` to build at a domain root instead. Never publish
 the source directory as the built site: publish only `dist`. Deployment is a
-separate approved step; there is no automatic deployment workflow in this branch.
+separate approved step. The workflow verifies PRs and main-branch pushes;
+publishing requires a manual run on main with the publish option enabled.
+See [PUBLISHING.md](PUBLISHING.md) for the first release and rollback.
 
 ## Cleanup
 

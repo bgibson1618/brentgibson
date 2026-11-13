@@ -7,7 +7,10 @@ export function siteBase(input = '/brentgibson/'): string {
 
 export type Page = 'home' | 'roster' | 'memory';
 export const pagePaths: Record<Page, string> = {
-  home: '', roster: 'projects/agent-roster/', memory: 'projects/agent-memory/',
+  home: '', roster: 'projects/ensemble/', memory: 'projects/folio/',
+};
+export const legacyPaths: Partial<Record<Page, string>> = {
+  roster: 'projects/agent-roster/', memory: 'projects/agent-memory/',
 };
 export const pageUrl = (base: string, page: Page) => `${base}${pagePaths[page]}`;
 

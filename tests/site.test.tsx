@@ -27,6 +27,15 @@ test('home preserves the approved project order', () => {
   assert.ok(html.indexOf('<h3>Ensemble') < html.indexOf('<h3>Folio'));
   assert.ok(html.indexOf('<h3>Folio') < html.indexOf('Retrieval for OpenEMR'));
 });
+test('project links use the public names beneath either hosting base', () => {
+  for (const base of ['/', '/brentgibson/']) {
+    const html = renderToString(<App page="home" base={base} />);
+    assert.ok(html.includes(`href="${base}projects/ensemble/"`));
+    assert.ok(html.includes(`href="${base}projects/folio/"`));
+    assert.ok(!html.includes(`href="${base}projects/agent-roster/"`));
+    assert.ok(!html.includes(`href="${base}projects/agent-memory/"`));
+  }
+});
 test('walkthrough controls stop at boundaries and reset predictably', () => {
   for (const project of projects) {
     const count = project.demo.length;

@@ -13,8 +13,8 @@ export default defineConfig({
   build: {
     rolldownOptions: { input: {
       home: resolve(import.meta.dirname, 'index.html'),
-      roster: resolve(import.meta.dirname, 'projects/agent-roster/index.html'),
-      memory: resolve(import.meta.dirname, 'projects/agent-memory/index.html'),
+      roster: resolve(import.meta.dirname, 'projects/ensemble/index.html'),
+      memory: resolve(import.meta.dirname, 'projects/folio/index.html'),
     } },
   },
 });

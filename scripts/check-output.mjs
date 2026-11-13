@@ -2,11 +2,15 @@ import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const base = process.env.SITE_BASE ?? '/brentgibson/';
-const pages = ['index.html', 'projects/agent-roster/index.html', 'projects/agent-memory/index.html'];
+const pages = ['index.html', 'projects/ensemble/index.html', 'projects/folio/index.html'];
+const redirects = [
+  ['projects/agent-roster/index.html', 'projects/ensemble/'],
+  ['projects/agent-memory/index.html', 'projects/folio/'],
+];
 const origin = 'https://portfolio.invalid';
 const root = resolve('dist');
 let checked = 0;
-for (const page of pages) {
+for (const page of [...pages, ...redirects.map(([path]) => path)]) {
   const html = await readFile(resolve(root, page), 'utf8');
   if (!html.includes('<h1>') || !html.includes('<main')) throw new Error(`${page} is not pre-rendered`);
   if (/link pending|TODO|github\.com\/BGibson1618/.test(html)) throw new Error(`Placeholder or incorrect URL in ${page}`);
@@ -27,6 +31,12 @@ for (const page of pages) {
     checked++;
   }
 }
+for (const [path, destination] of redirects) {
+  const html = await readFile(resolve(root, path), 'utf8');
+  if (!html.includes(`http-equiv="refresh" content="0; url=${base}${destination}"`)) {
+    throw new Error(`Incorrect redirect at ${path}`);
+  }
+}
 const resume = await readFile(resolve(root, 'brent-gibson-resume.pdf'));
 if (resume.subarray(0, 5).toString() !== '%PDF-') throw new Error('Resume is not a PDF');
-console.log(`Checked ${pages.length} pre-rendered pages, ${checked} local links/assets, and the resume PDF.`);
+console.log(`Checked ${pages.length} pre-rendered pages, ${redirects.length} redirects, ${checked} local links/assets, and the resume PDF.`);
