@@ -47,15 +47,15 @@ export const projects: Project[] = [
   {
     id: 'memory', name: 'Folio', descriptor: 'Shared knowledge across sessions and projects',
     summary: 'Folio gives AI agents a shared library of knowledge they can build on over time. Keyword, semantic and graph search help retrieve relevant context, while readable Markdown records keep that knowledge accessible to people as well.',
-    problem: 'An agent can learn something useful during one task and begin the next session without it. I wanted a knowledge base that different agents and projects could consult, with records I could also inspect and edit.',
-    contribution: 'I built the knowledge storage and retrieval system around versioned Markdown, using SQLite full-text search, local embeddings and a derived relationship graph. These search paths contribute to a combined result rather than requiring a separate knowledge store for each one.',
+    problem: 'I wanted useful knowledge from one task to be available in the next, even when a different agent or project needed it. That meant creating a shared knowledge base that agents could search and that I could read and edit myself.',
+    contribution: 'As my capstone for the Gauntlet AI fellowship, I built a knowledge storage and retrieval system for AI agents. Folio combines versioned Markdown records, SQLite full-text search, local embeddings and a relationship graph. These search methods draw from the same knowledge base and contribute to a combined set of results.',
     architecture: [
-      { title: 'Readable records first', text: 'Folio stores knowledge in versioned Markdown based on the Open Knowledge Format, an open specification introduced by Google Cloud. The records remain readable and portable across tools, with search indexes derived from them.' },
-      { title: 'More than exact words', text: 'Keyword search finds explicit terms. Semantic search helps with differently worded questions. Graph traversal follows relationships between entries.' },
-      { title: 'One retrieval result', text: 'The retrieval paths are combined using reciprocal rank fusion, so an agent can receive useful context without choosing a search engine first.' },
+      { title: 'Keep knowledge readable', text: 'Folio stores knowledge in versioned Markdown based on the Open Knowledge Format, an open specification introduced by Google Cloud. These records are the source of truth; search indexes are derived from them.' },
+      { title: 'Search by words, meaning and relationships', text: 'Keyword search finds explicit terms. Semantic search helps when a question uses different wording. Graph traversal follows connections between knowledge entries.' },
+      { title: 'Combine the results', text: 'Reciprocal rank fusion combines the separate rankings into one result list, allowing each search method to contribute without directly comparing their different scoring systems.' },
     ],
-    tradeoff: 'Local embeddings give me control over that part of the data processing, but they add an operating dependency. When the embedding service is unavailable, lexical and graph retrieval remain useful, with the reduced search capability made explicit.',
-    next: 'The next portfolio update will add a recorded save-and-search session with a small public example knowledge base and more detail on retrieval evaluation.',
+    tradeoffTitle: 'Design tradeoffs',
+    tradeoff: 'Local embeddings give me control over where that processing happens, but they require a local model to be available and maintained. Semantic search depends on that service; keyword and graph search provide other ways to retrieve knowledge.\n\nSaving a lesson doesn’t make it universally applicable. A retrieved record provides context that an agent still needs to assess for relevance, accuracy and changes since it was written.',
     source: 'https://github.com/bgibson1618/agent-memory',
     demo: [
       { title: 'Save a lesson worth keeping', description: 'A useful observation becomes a readable record that can outlive the current session.', label: 'Example knowledge entry', example: 'Title: Validate CSV headers before previewing rows\nLesson: Reject a file whose header is missing or contains only whitespace.\nRelated topics: imports, input validation', takeaway: 'Knowledge is retained in an inspectable format.' },
