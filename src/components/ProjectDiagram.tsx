@@ -1,6 +1,6 @@
 export function ProjectDiagram({ kind }: { kind: 'roster' | 'memory' }) {
   return kind === 'roster' ? (
-    <figure className="project-diagram" aria-label="Concept diagram of Task Force's coordination model">
+    <figure className="project-diagram" aria-label="Concept diagram of Ensemble's coordination model">
       <div className="diagram-coordinator">Your orchestrating agent</div>
       <div className="diagram-connector" aria-hidden="true" />
       <div className="diagram-backends"><span>Claude</span><span>Codex</span><span>Antigravity</span></div>

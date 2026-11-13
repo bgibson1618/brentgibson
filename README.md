@@ -1,6 +1,6 @@
 # Brent Gibson portfolio
 
-A static React portfolio with a homepage, Task Force and Folio case
+A static React portfolio with a homepage, Ensemble and Folio case
 studies, and small illustrative walkthroughs. Built with Vite, TypeScript and a
 shadcn/ui Button foundation. No backend, account, analytics or model calls.
 
@@ -25,10 +25,10 @@ serves the production result on loopback.
 - Downloadable resume: `public/brent-gibson-resume.pdf`.
 
 The walkthroughs are explicitly illustrative. Replace them with verified public
-examples or recordings when the projects are updated. Task Force currently has no
+examples or recordings when the projects are updated. Ensemble currently has no
 publicly verified source link; do not add a broken/private repository URL.
 
-Task Force and Folio are the provisional website names for Agent Roster and
+Ensemble and Folio are the provisional website names for Agent Roster and
 Agent Memory. Existing routes, repositories, CLIs and the downloadable resume
 retain their current names. Project-repository renames await Brent's decision.
 

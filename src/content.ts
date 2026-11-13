@@ -7,7 +7,7 @@ export const profile = {
   github: 'https://github.com/bgibson1618',
   linkedin: 'https://www.linkedin.com/in/brent-gibson-76386265/',
   headline: 'I build AI applications and tools that help agents work together.',
-  introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Task Force to coordinate agents from different AI vendors, and Folio to carry useful knowledge between sessions and projects. I use both every day.',
+  introduction: 'Some of my most useful projects started with problems in my own development workflow. I built Ensemble to coordinate agents from different AI vendors, and Folio to carry useful knowledge between sessions and projects. I use both every day.',
   about: 'I like understanding how systems work, tracing problems to their source and building tools that make the next project easier. My background spans embedded software, AI evaluation and application development. During the Gauntlet AI fellowship, I built Folio as my capstone project.',
   contactHeading: 'What can I build for your team?',
   contact: 'I’m interested in engineering roles focused on LLM applications, evaluation and agent developer tools. I’m based in Austin and open to local or remote opportunities.',
@@ -27,10 +27,10 @@ export type Project = {
 };
 export const projects: Project[] = [
   {
-    id: 'roster', name: 'Task Force', descriptor: 'Coordination across AI vendors',
-    summary: 'Task Force gives Claude, Codex and Antigravity agents a common way to delegate tasks, exchange messages and review one another’s work. A shared monitoring console provides observability into each agent’s progress and results.',
+    id: 'roster', name: 'Ensemble', descriptor: 'Coordination across AI vendors',
+    summary: 'Ensemble gives Claude, Codex and Antigravity agents a common way to delegate tasks, exchange messages and review one another’s work. A shared monitoring console provides observability into each agent’s progress and results.',
     problem: 'I wanted an orchestrating agent to delegate to another vendor’s agent and bring the result back into the same workflow. I also wanted to see what was running and inspect what happened afterward. A collection of separate terminal sessions made that coordination difficult.',
-    contribution: 'I designed and built a reusable delegation layer around the vendor CLIs, along with agent-to-agent messaging, a live monitoring console, and persistent run logs and status. The model providers supply the agents; Task Force supplies the shared coordination and observation layer.',
+    contribution: 'I designed and built a reusable delegation layer around the vendor CLIs, along with agent-to-agent messaging, a live monitoring console, and persistent run logs and status. The model providers supply the agents; Ensemble supplies the shared coordination and observation layer.',
     architecture: [
       { title: 'A common entry point', text: 'An orchestrator assigns a focused task and selects a role and backend. Adapters translate that launch into the appropriate vendor CLI behavior.' },
       { title: 'Messages and durable records', text: 'Agents can exchange messages, while run records preserve the task, output and status for later inspection.' },

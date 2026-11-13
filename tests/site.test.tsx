@@ -23,8 +23,8 @@ test('static routes and assets stay beneath the selected deployment base', () =>
 });
 test('home preserves the approved project order', () => {
   const html = renderToString(<App page="home" base="/" />);
-  assert.ok(html.includes('<h3>Task Force'));
-  assert.ok(html.indexOf('<h3>Task Force') < html.indexOf('<h3>Folio'));
+  assert.ok(html.includes('<h3>Ensemble'));
+  assert.ok(html.indexOf('<h3>Ensemble') < html.indexOf('<h3>Folio'));
   assert.ok(html.indexOf('<h3>Folio') < html.indexOf('Retrieval for OpenEMR'));
 });
 test('walkthrough controls stop at boundaries and reset predictably', () => {

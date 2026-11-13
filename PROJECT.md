@@ -1,7 +1,7 @@
 # Personal portfolio MVP
 
 Build a calm, approachable portfolio for AI/application engineering and agent
-developer tools roles. The approved order is Task Force (Agent Roster), Folio (Agent Memory), then a
+developer tools roles. The approved order is Ensemble (Agent Roster), Folio (Agent Memory), then a
 smaller OpenEMR entry on the homepage. Home, two project pages, resume download and contact links
 must work. Preserve concise education/background facts. Copy and demos can be
 refined after this first functional version.
